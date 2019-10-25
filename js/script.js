@@ -66,7 +66,8 @@ function generateTitleLinks() {
             const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
             console.log('linkHTML' , linkHTML)  
             /* insert link into titleList */
-            titleList.innerHTML = titleList.innerHTML + linkHTML;
+            /*titleList.innerHTML = titleList.innerHTML + linkHTML;*/ // first method
+            titleList.insertAdjacentHTML('beforebegin' , linkHTML);   // second method   
         }
         
 }
