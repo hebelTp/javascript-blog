@@ -34,12 +34,8 @@ const titleClickHandler = function(event) {
     /* add class 'active' to the correct article */
     targetArticle.classList.add('active');
 }
-  
-const links = document.querySelectorAll('.titles a');
-    console.log('LINKS' , links);                                                       // bug investigation
-    
-/* create function to generate title links */
 
+/* create function to generate title links */
 const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles';
@@ -49,21 +45,27 @@ function generateTitleLinks() {
     /* remove contents of titleList */
     const titleList = document.querySelector(optTitleListSelector);
     console.log('titleList' , titleList);
+    
     /*for each article */
     const articles = document.querySelectorAll(optArticleSelector);
     let html = '';                                                                      //third method
     console.log('articles' , articles);
+        
         for (let article of articles) {
+            
             /* get the article id */                                                                             // the same //   /* get 'href' attribute from the clicked link */
             const articleId = article.getAttribute('id');                                                                           //const articleSelector = clickedElement.getAttribute('href');
             console.log('article Id' , articleId);                                                                                  //console.log('articleSelector :', articleSelector );     
+            
             /* find the title element */
             /* get the title from the title element */                          
             const articleTitle = article.querySelector(optTitleSelector).innerHTML;             
             console.log(articleTitle);
+            
             /* create HTML of the link */
             const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
             console.log('linkHTML' , linkHTML)  
+            
             /* insert link into titleList */
             /*titleList.innerHTML = titleList.innerHTML + linkHTML;*/                   // first method
             /*titleList.insertAdjacentHTML('beforebegin' , linkHTML);*/                 // second method   
@@ -71,6 +73,12 @@ function generateTitleLinks() {
             console.log('HTML', html);
         }
         titleList.innerHTML = html;                                                 // third method
+        const links = document.querySelectorAll('.titles a');
+        console.log('LINKS' , links);                                                       // bug investigation
+            
+            for(let link of links) {
+                console.log(link);
+        }    
 }
 generateTitleLinks();
 }
