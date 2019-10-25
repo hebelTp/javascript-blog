@@ -12,7 +12,6 @@ const titleClickHandler = function(event) {
         }
     
     /* add class 'active' to the clicked link */
-
     console.log('clickedElement:', clickedElement);
     clickedElement.classList.add('active');
   
@@ -39,4 +38,51 @@ const links = document.querySelectorAll('.titles a');
   
     for (let link of links) {
     link.addEventListener('click', titleClickHandler);
-    }
+    
+/* create function to generate title links */
+
+const optArticleSelector = '.post';
+    optTitleSelector = '.post-title';
+    optTitleListSelector = '.titles';
+
+function generateTitleLinks() {
+
+    /* remove contents of titleList */
+
+
+    /*for each article */
+
+        /* get the article id */
+
+        /* find the title element */
+
+        /* get the title from the title element */
+
+        /* create HTML of the link */
+
+        /* insert link into titleList */
+
+
+}
+
+generateTitleLinks();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
