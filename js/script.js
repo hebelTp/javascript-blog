@@ -41,14 +41,14 @@ const links = document.querySelectorAll('.titles a');
     
 /* create function to generate title links */
 
-const optArticleSelector = '.post';
-    optTitleSelector = '.post-title';
+const optArticleSelector = '.post',
+    optTitleSelector = '.post-title',
     optTitleListSelector = '.titles';
 
 function generateTitleLinks() {
 
     /* remove contents of titleList */
-
+    const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
 
     /*for each article */
 
@@ -65,7 +65,7 @@ function generateTitleLinks() {
 
 }
 
-generateTitleLinks();
+generateTitleLinks();   // ??? wywołanie funkcji 
 
 }
 
@@ -85,4 +85,3 @@ generateTitleLinks();
 
 
 
-}
