@@ -85,7 +85,7 @@
 
   function generateTags(){
     /* find all articles */
-    const articles = document.querySelector(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector);
     console.log('ARTILES', articles);
     /* START LOOP: for every article: */
 
