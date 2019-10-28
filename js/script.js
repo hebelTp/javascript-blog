@@ -94,7 +94,7 @@
       console.log('TagLELIST' , tagList);
 
       /* make html variable with empty string */
-
+      let html = '';
       /* get tags from data-tags attribute */
 
       /* split tags into array */
