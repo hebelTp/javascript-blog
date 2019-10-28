@@ -96,7 +96,8 @@
       /* make html variable with empty string */
       let html = '';
       /* get tags from data-tags attribute */
-
+      const tag = article.getAttribute('data-tags');
+      console.log('TAG SELECTOR', tag );
       /* split tags into array */
 
       /* START LOOP: for each tag */
