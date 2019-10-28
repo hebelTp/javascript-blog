@@ -102,13 +102,16 @@
       const articleTagsArray = articleTags.split(' ');
       console.log('ARTICLETAGSARRAY', articleTagsArray);
       /* START LOOP: for each tag */
-
-      /* generate HTML of the link */
-
-      /* add generated code to html variable */
-
+      for (let tag of articleTagsArray){
+        console.log('TAG', tag);
+        /* generate HTML of the link */
+        const tagHtml = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+        console.log('TAG HTML', tagHtml);
+        /* add generated code to html variable */
+        html= html+tagHtml;
+        console.log('HTML', html);
       /* END LOOP: for each tag */
-
+      }
       /* insert HTML of all the links into the tags wrapper */
 
     /* END LOOP: for every article: */
