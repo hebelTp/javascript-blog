@@ -90,6 +90,8 @@
     /* START LOOP: for every article: */
     for (let article of articles ){
     /* find tags wrapper */
+      const tagList = article.querySelector(optArticleTagsSelector);
+      console.log('TagLELIST' , tagList);
 
       /* make html variable with empty string */
 
