@@ -96,10 +96,11 @@
       /* make html variable with empty string */
       let html = '';
       /* get tags from data-tags attribute */
-      const tag = article.getAttribute('data-tags');
-      console.log('TAG SELECTOR', tag );
+      const articleTags = article.getAttribute('data-tags');
+      console.log('TAG SELECTOR', articleTags );
       /* split tags into array */
-
+      const articleTagsArray = articleTags.split(' ');
+      console.log('ARTICLETAGSARRAY', articleTagsArray);
       /* START LOOP: for each tag */
 
       /* generate HTML of the link */
