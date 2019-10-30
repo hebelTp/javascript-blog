@@ -139,13 +139,16 @@
     const tag = href.replace('#tag-', '');
     console.log('TAG', tag);
     /* find all tag links with class active */
-
+    const activeTags = document.querySelectorAll('.list-horizontal a.active');
+    console.log('ACTIVETAGS', activeTags);                                                    // find in  six chapter
     /* START LOOP: for each active tag link */
+    for (let activeTag of activeTags){
 
-    /* remove class active */
-
+      /* remove class active */
+      activeTag.classList.remove('active');
+      console.log(activeTag);
     /* END LOOP: for each active tag link */
-
+    }
     /* find all tag links with "href" attribute equal to the "href" constant */
 
     /* START LOOP: for each found tag link */
