@@ -124,15 +124,15 @@
 
   generateTags();
 
-const tagClickHandler = function(event){
+  const tagClickHandler = function(event){                                                      // ORDER //
     console.log('Tag was clikced');
     /* prevent default action for this event */
-   event.preventDefault();
+    event.preventDefault();
     /* make new constant named "clickedElement" and give it the value of "this" */
     const clickedElement = this ;
-   console.log('CLICKED ELEMENT', clickedElement);
+    console.log('CLICKED ELEMENT', clickedElement);
     /* make a new constant "href" and read the attribute "href" of the clicked element */
-     href = clickedElement.getAttribute('href');
+    href = clickedElement.getAttribute('href');
     console.log('href', href);
     /* make a new constant "tag" and extract tag from the "href" constant */
     const tag = href.replace('#tag-', '');
@@ -141,7 +141,7 @@ const tagClickHandler = function(event){
 
     /* START LOOP: for each active tag link */
 
-      /* remove class active */
+    /* remove class active */
 
     /* END LOOP: for each active tag link */
 
@@ -149,24 +149,25 @@ const tagClickHandler = function(event){
 
     /* START LOOP: for each found tag link */
 
-      /* add class active */
+    /* add class active */
 
     /* END LOOP: for each found tag link */
 
     /* execute function "generateTitleLinks" with article selector as argument */
     generateTitleLinks();
-  }
+  };
 
-  function addClickListenersToTags(){
+  function addClickListenersToTags(){                                                    // 1
     /* find all links to tags */
-    const tags = document.querySelectorAll(optArticleTagsSelector);
+    const tags = document.querySelectorAll(optArticleTagsSelector);                        //2
     console.log(tags);
     /* START LOOP: for each link */
-   for(let tag of tags){
+    for(let tag of tags){
       /* add tagClickHandler as event listener for that link */
-    tag.addEventListener('click', tagClickHandler);
+      tag.addEventListener('click', tagClickHandler);
+      console.log('tag', tag);
     /* END LOOP: for each link */
-  }
+    }
   }
   addClickListenersToTags();
 
