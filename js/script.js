@@ -38,8 +38,9 @@
   /* create function to generate title links */
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles';
-  optArticleTagsSelector = '.post-tags .list';
+    optTitleListSelector = '.titles',
+    optArticleTagsSelector = '.post-tags .list',
+    optArticleTagsSelectorOper = '.post-tags .list a';
 
   function generateTitleLinks() {
 
@@ -136,7 +137,7 @@
     console.log('href', href);
     /* make a new constant "tag" and extract tag from the "href" constant */
     const tag = href.replace('#tag-', '');
-    console.log('TAAAAAG', tag);
+    console.log('TAG', tag);
     /* find all tag links with class active */
 
     /* START LOOP: for each active tag link */
@@ -159,7 +160,7 @@
 
   function addClickListenersToTags(){                                                    // 1
     /* find all links to tags */
-    const tags = document.querySelectorAll(optArticleTagsSelector);                        //2
+    const tags = document.querySelectorAll(optArticleTagsSelectorOper);                        //2 a.active  and a without dot for test
     console.log(tags);
     /* START LOOP: for each link */
     for(let tag of tags){
