@@ -176,9 +176,10 @@
       const authorList = article.querySelector(optArticleAuthorSelector);
       console.log('authorList', authorList);
       /* make html variable with empty string */
+      let = html='';
 
       /* get tags from data-authors attribute */
-
+      const articleAuthors = article.getAttribute('data-authors')
       /* insert HTML of all the links into the author wrapper */
 
     /* END LOOP: for every article: */
