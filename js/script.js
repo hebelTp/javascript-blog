@@ -166,3 +166,20 @@
   }
   addClickListenersToTags();
 }
+function generateAuthor(){
+  /* find all articles */
+
+  /* START LOOP: for every article: */
+
+    /* find Author wrapper */
+
+    /* make html variable with empty string */
+
+    /* get tags from data-authors attribute */
+
+    /* insert HTML of all the links into the author wrapper */
+
+  /* END LOOP: for every article: */
+}
+
+generateAuthor();
