@@ -76,7 +76,6 @@
   function generateTags() {
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
-
     /* START LOOP: for every article: */
     for (let article of articles ){
     /* find tags wrapper */
@@ -133,7 +132,6 @@
 
       /* remove class active */
       activeTag.classList.remove('active');
-
     /* END LOOP: for each active tag link */
     }
 
@@ -162,12 +160,8 @@
 
       /* add tagClickHandler as event listener for that link */
       tag.addEventListener('click', tagClickHandler);
-
     /* END LOOP: for each link */
     }
   }
   addClickListenersToTags();
 }
-
-
-
