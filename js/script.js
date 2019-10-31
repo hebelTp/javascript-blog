@@ -38,13 +38,13 @@
     optArticleTagsSelector = '.post-tags .list',
     optArticleTagsSelectorOper = '.post-tags .list a';
 
-  function generateTitleLinks(customSelector = '') {
-    console.log('calaRobotaZtitleClickHandlera', customSelector);
+  function generateTitleLinks(customSelector = ' ') {
+    console.log('customSelector', customSelector);
     /* remove contents of titleList */
     const titleList = document.querySelector(optTitleListSelector);
 
     /*for each article */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
     console.log('articles', articles);
     let html = '';
 
