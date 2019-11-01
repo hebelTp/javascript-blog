@@ -166,36 +166,42 @@
     }
   }
   addClickListenersToTags();
-  function generateAuthor(){
+
+  function generateAuthor() {
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
     console.log(articles);
+
     /* START LOOP: for every article: */
     for (let article of articles) {
-    /* find Author wrapper */
+
+      /* find Author wrapper */
       const authorList = article.querySelector(optArticleAuthorSelector);
-      console.log('authorList', authorList);
+      //console.log('authorList', authorList);
+
       /* make html variable with empty string */
-      let = html='';
+      let = html = '';
 
       /* get tags from data-authors attribute */
-      const articleAuthors = article.getAttribute('data-authors')
-      console.log('articleAuthors', articleAuthors);
+      const articleAuthors = article.getAttribute('data-authors');
+      //console.log('articleAuthors', articleAuthors);
 
-      /* START LOOP: for each tag */
+      /* START LOOP: for each author */
       for (let author of articleAuthors) {
 
         /* generate HTML of the link */
         const authorHtml = '<a href="#' + author + '"><span>' + author + '</span></a>';
 
         /* add generated code to html variable */
-        html= html+authorHtml;
-        /* END LOOP: for each tag */
+        html = html + authorHtml;
+
+        /* END LOOP: for each author */
       }
 
+      /* insert HTML of all the links into the tags wrapper */
+      authorList.innerHTML= html ;
 
-      authorList.innerHTML=html;
-    /* END LOOP: for every article: */
+      /* END LOOP: for every article: */
     }
   }
   generateAuthor();
