@@ -182,7 +182,9 @@
       const articleAuthors = article.getAttribute('data-authors')
       console.log('articleAuthors', articleAuthors);
       /* insert HTML of all the links into the author wrapper */
-
+      html = html + articleAuthors;
+      console.log(html);
+      authorList.innerHTML=html;
     /* END LOOP: for every article: */
     }
   }
