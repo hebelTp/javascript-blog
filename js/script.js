@@ -181,9 +181,19 @@
       /* get tags from data-authors attribute */
       const articleAuthors = article.getAttribute('data-authors')
       console.log('articleAuthors', articleAuthors);
-      /* insert HTML of all the links into the author wrapper */
-      html = html + articleAuthors;
-      console.log(html);
+
+      /* START LOOP: for each tag */
+      for (let author of articleAuthors) {
+
+        /* generate HTML of the link */
+        const authorHtml = '<a href="#">' + author +'</a>';
+
+        /* add generated code to html variable */
+        html= html+authorHtml;
+        /* END LOOP: for each tag */
+      }
+
+
       authorList.innerHTML=html;
     /* END LOOP: for every article: */
     }
