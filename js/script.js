@@ -192,7 +192,7 @@
 
         /* generate HTML of the link */
         //const tagHtml = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
-        const authorHtml = '<a href="#' + author + '"><span>' + author + '</span></a>';
+        const authorHtml = '<a href="#author-' + author + '">' + author + '</a>';
         console.log('link Html', authorHtml);
         /* add generated code to html variable */
         html = html + authorHtml;
