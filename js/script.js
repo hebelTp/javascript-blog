@@ -172,10 +172,10 @@
   function generateAuthor() {
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
-
+    console.log('articles', articles);
     /* START LOOP: for every article: */
     for (let article of articles) {
-
+      console.log('article', article)
       /* find Author wrapper */
       const authorList = article.querySelector(optArticleAuthorSelector);
       //console.log('authorList', authorList);
@@ -185,20 +185,15 @@
 
       /* get tags from data-authors attribute */
       const articleAuthors = article.getAttribute('data-authors');
-      //console.log('articleAuthors', articleAuthors);
+      console.log('articleAuthors', articleAuthors);
 
-      /* START LOOP: for each author */
-      for (let author of articleAuthors) {
+      /* generate HTML of the link */   // WITHOUT ARRAY AND SPLIT THAT IS WHY TER IS NOT A LOOP
+      const authorHtml = '<a href="#author-' + articleAuthors + '"> ' + articleAuthors + '</a>';
+      console.log('authorHTML', authorHtml);
 
-        /* generate HTML of the link */
-        //const tagHtml = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
-        const authorHtml = '<a href="#author-' + author + '">' + author + '</a>';
-        console.log('link Html', authorHtml);
-        /* add generated code to html variable */
-        html = html + authorHtml;
-
-        /* END LOOP: for each author */
-      }
+      /* add generated code to html variable */
+      html = html + authorHtml;
+      console.log('HTML', html);
 
       /* insert HTML of all the links into the tags wrapper */
       authorList.innerHTML= html ;
