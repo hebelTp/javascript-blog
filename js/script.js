@@ -129,7 +129,7 @@
 
     /* find all tag links with class active */
     const activeTags = document.querySelectorAll('a.active[href^="#tag-"]');
-
+    console.log('aktywne tagi', activeTags );
     /* START LOOP: for each active tag link */
     for (let activeTag of activeTags){
 
@@ -157,13 +157,13 @@
   function addClickListenersToTags() {
     /* find all links to tags */
     const tags = document.querySelectorAll(optArticleTagsSelectorOper);
-    console.log(tags);
+
     /* START LOOP: for each link */
     for (let tag of tags){
 
       /* add tagClickHandler as event listener for that link */
       tag.addEventListener('click', tagClickHandler);
-      console.log('tag was clicked', tag);
+
     /* END LOOP: for each link */
     }
   }
@@ -172,10 +172,10 @@
   function generateAuthor() {
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
-    console.log('articles', articles);
+
     /* START LOOP: for every article: */
     for (let article of articles) {
-      console.log('article', article)
+
       /* find Author wrapper */
       const authorList = article.querySelector(optArticleAuthorSelector);
       //console.log('authorList', authorList);
@@ -185,15 +185,12 @@
 
       /* get tags from data-authors attribute */
       const articleAuthors = article.getAttribute('data-authors');
-      console.log('articleAuthors', articleAuthors);
 
       /* generate HTML of the link */   // WITHOUT ARRAY AND SPLIT THAT IS WHY TER IS NOT A LOOP
       const authorHtml = '<a href="#author-' + articleAuthors + '"> ' + articleAuthors + '</a>';
-      console.log('authorHTML', authorHtml);
 
       /* add generated code to html variable */
       html = html + authorHtml;
-      console.log('HTML', html);
 
       /* insert HTML of all the links into the tags wrapper */
       authorList.innerHTML= html ;
@@ -212,37 +209,41 @@
     const clickedElement = this;
 
     /* make a new constant "href" and read the attribute "href" of the clicked element */
-
+    const href = clickedElement.getAttribute('href');
+    console.log(href);
 
     /* make a new constant "author" and extract author from the "href" constant */
-
+    const author = href.replace('#author-', ' ');
+    console.log ('author wyekstrachowany', author);
 
     /* find all author links with class active */
-
+    const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
+    console.log('aktywne linki autorów', activeAuthors);
 
     /* START LOOP: for each active author link */
-
+    for (let activeAuthor of activeAuthors) {
 
     /* remove class active */
-
+    activeAuthor.classList.remove('active');
 
     /* END LOOP: for each active author link */
-
+    }
 
     /* find all author links with "href" attribute equal to the "href" constant */
-
+    const authorLinks = document.querySelectorAll('a[href^="#author-' + author + '"]');
+    console.log('AUTHOR LINKS', authorLinks);
 
     /* START LOOP: for each found author link */
-
+    for (let authorLink of authorLinks){
 
     /* add class active */
-
+      authorLink.classList.add('active');
 
     /* END LOOP: for each found tag link */
-
+    }
 
     /* execute function "generateAuthorLinks" with article selector as argument */
-    generateAuthorLinks();
+    generateTitleLinks();
   };
 
   function addClickListenersToAuthors() {
