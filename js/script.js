@@ -180,6 +180,7 @@
 
       /* get tags from data-authors attribute */
       const articleAuthors = article.getAttribute('data-authors')
+      console.log('articleAuthors', articleAuthors);
       /* insert HTML of all the links into the author wrapper */
 
     /* END LOOP: for every article: */
