@@ -37,7 +37,7 @@
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list',
     optArticleTagsSelectorOper = '.post-tags .list a',
-    optArticleAuthorsSelectorOper = '.post-author',
+    optArticleAuthorsSelectorOper = '.post-author a ',
     optArticleAuthorSelector = '.post-author';
 
   function generateTitleLinks(customSelector = ' ') {
@@ -163,6 +163,7 @@
 
       /* add tagClickHandler as event listener for that link */
       tag.addEventListener('click', tagClickHandler);
+      console.log('tag was clicked', tag);
     /* END LOOP: for each link */
     }
   }
@@ -190,8 +191,9 @@
       for (let author of articleAuthors) {
 
         /* generate HTML of the link */
-        const authorHtml = '<a href="#' + author + '"><span>' + author + '</span></a>';
-
+        //const tagHtml = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+        const authorHtml = '<li><a href="#' + author + '"><span>' + author + '</span></a></li>';
+        console.log('link Html', authorHtml);
         /* add generated code to html variable */
         html = html + authorHtml;
 
@@ -226,10 +228,10 @@
     /* START LOOP: for each active author link */
 
 
-      /* remove class active */
+    /* remove class active */
 
 
-      /* END LOOP: for each active author link */
+    /* END LOOP: for each active author link */
 
 
     /* find all author links with "href" attribute equal to the "href" constant */
@@ -238,10 +240,10 @@
     /* START LOOP: for each found author link */
 
 
-      /* add class active */
+    /* add class active */
 
 
-      /* END LOOP: for each found tag link */
+    /* END LOOP: for each found tag link */
 
 
     /* execute function "generateAuthorLinks" with article selector as argument */
@@ -254,12 +256,13 @@
     console.log(authors);
 
     /* START LOOP: for each link */
-
+    for (let author of authors) {
 
       /* add authorClickHandler as event listener for that link */
-
+      author.addEventListener('click', authorClickHandler);
+      console.log( author);
     /* END LOOP: for each link */
-
+    }
   }
   addClickListenersToAuthors();
 
