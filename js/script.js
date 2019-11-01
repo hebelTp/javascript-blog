@@ -186,7 +186,7 @@
       for (let author of articleAuthors) {
 
         /* generate HTML of the link */
-        const authorHtml = '<a href="#">' + author +'</a>';
+        const authorHtml = '<a href="#' + author + '"><span>' + author + '</span></a>';
 
         /* add generated code to html variable */
         html= html+authorHtml;
