@@ -213,7 +213,7 @@
     console.log(href);
 
     /* make a new constant "author" and extract author from the "href" constant */
-    const author = href.replace('#author-', ' ');
+    const author = href.replace('#author-', '');
     console.log ('author wyekstrachowany', author);
 
     /* find all author links with class active */
@@ -243,8 +243,8 @@
     }
 
     /* execute function "generateAuthorLinks" with article selector as argument */
-    generateTitleLinks();
-  };
+    generateTitleLinks('[data-authors~="' + author + '"]');
+      };
 
   function addClickListenersToAuthors() {
     /* find all links to authors */
