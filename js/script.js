@@ -38,8 +38,9 @@
     optArticleTagsSelector = '.post-tags .list',
     optArticleTagsSelectorOper = '.post-tags .list a',
     optArticleAuthorsSelectorOper = '.post-author a ',
-    optArticleAuthorSelector = '.post-author';
-
+    optArticleAuthorSelector = '.post-author',
+    optTagsListSelector = '.tags .list';
+    console.log(optTitleListSelector);
   function generateTitleLinks(customSelector = '') {
 
     /* remove contents of titleList */
@@ -60,7 +61,7 @@
 
       /* create HTML of the link */
       const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-
+      console.log('LINK HTML', linkHTML);
 
       /* insert link into titleList */
       html = html + linkHTML;
@@ -76,11 +77,17 @@
   generateTitleLinks();
 
   function generateTags() {
+
+    /* [NEW] create a new variable allTags with an empty array */
+    let allTags = [];
+    console.log(allTags)
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
+
     /* START LOOP: for every article: */
     for (let article of articles ){
-    /* find tags wrapper */
+
+      /* find tags wrapper */
       const tagList = article.querySelector(optArticleTagsSelector);
 
       /* make html variable with empty string */
@@ -92,6 +99,7 @@
       /* split tags into array */
       const articleTagsArray = articleTags.split(' ');
 
+
       /* START LOOP: for each tag */
       for (let tag of articleTagsArray) {
 
@@ -100,15 +108,28 @@
 
         /* add generated code to html variable */
         html= html+tagHtml;
+        console.log('HTML', html);
+        /* [NEW] check if this link is NOT alredy in allTags */
+        if(allTags.indexOf(linkHTML) == -1) {
 
-      /* END LOOP: for each tag */
+          /* [NEW add generated code to allTags array] */
+          allTags.push(linkHTML);
       }
-      /* insert HTML of all the links into the tags wrapper */
+          /* END LOOP: for each tag */
+      }
+            /* insert HTML of all the links into the tags wrapper */
       tagList.innerHTML=html;
 
       /* END LOOP: for every article: */
     }
+    /* [NEW] find list of tags in right column */
+     const tagList = document.querySelector('.tags');
+    /* add html from allTAgs to tagList */
+    tagList.innerHtml = allTags.join(' ');
+
+
   }
+
 
   generateTags();
 
@@ -121,7 +142,7 @@
     const clickedElement = this ;
 
     /* make a new constant "href" and read the attribute "href" of the clicked element */
-    href = clickedElement.getAttribute('href');
+    const href = clickedElement.getAttribute('href');
 
     /* make a new constant "tag" and extract tag from the "href" constant */
     const tag = href.replace('#tag-', '');
@@ -209,10 +230,10 @@
 
     /* make a new constant "href" and read the attribute "href" of the clicked element */
     const href = clickedElement.getAttribute('href');
-
+    console.log('HREF', href);
     /* make a new constant "author" and extract author from the "href" constant */
     const author = href.replace('#author-', '');
-
+    console.log('AUTHOR', author);
     /* find all author links with class active */
     const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
 
@@ -254,6 +275,8 @@
     }
   }
   addClickListenersToAuthors();
+
+
 }
 
 
