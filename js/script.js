@@ -77,9 +77,9 @@
 
   function generateTags() {
 
-    /* [NEW] create a new variable allTags with an empty array */
-    let allTags = [];
-    console.log(allTags)
+    /* [NEW] create a new variable allTags with an empty object */
+    let allTags = {};
+    //console.log(allTags);
 
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
@@ -221,26 +221,26 @@
       html = html + authorHtml;
 
       /* [NEW] check if this link is NOT alredy in allAuthors */
+
       if (allAuthors.indexOf(authorHtml) == -1) {
-      /* [NEW add generated code to allAuthors array] */
+
+        /* [NEW add generated code to allAuthors array] */
         allAuthors.push(authorHtml);
       }
 
       /* insert HTML of all the links into the tags wrapper */
       authorList.innerHTML= html ;
 
-
-
       /* END LOOP: for every article: */
     }
+
     /* [NEW] find list of authors in right column */
     const authorList = document.querySelector('.authors');
-    console.log(' list of authors in right column', authorList);
+
     /* add html from allAuthors to authorList */
     authorList.innerHTML = allAuthors.join(' ');
-    //console.log('AUTHOR list', allAuthors);
-
   }
+
   generateAuthor();
 
   const authorClickHandler = function(event) {
