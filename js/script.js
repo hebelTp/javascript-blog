@@ -196,6 +196,8 @@
   addClickListenersToTags();
 
   function generateAuthor() {
+    /* [NEW] create a new variable allAuthors with an empty array */
+    
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
 
@@ -217,11 +219,24 @@
       /* add generated code to html variable */
       html = html + authorHtml;
 
+      /* [NEW] check if this link is NOT alredy in allAuthors */
+
+      /* [NEW add generated code to allAuthors array] */
+
       /* insert HTML of all the links into the tags wrapper */
       authorList.innerHTML= html ;
 
+
+
       /* END LOOP: for every article: */
     }
+/* [NEW] find list of authors in right column */
+
+//console.log(' list of tags in right column', tagAuthors);
+/* add html from allTags to authorList */
+
+//console.log('AUTHOR list', allAuthors);
+
   }
   generateAuthor();
 
