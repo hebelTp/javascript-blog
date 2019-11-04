@@ -111,11 +111,12 @@
         html= html+tagHtml;
 
         /* [NEW] check if this link is NOT alredy in allTags */
-        if(allTags.indexOf(tagHtml) == -1) {
+        if(!allTags.hasOwnProperty(tagHtml)) {
 
-          /* [NEW add generated code to allTags array] */
-          allTags.push(tagHtml);
-
+          /* [NEW add generated code to allTags object] */
+          allTags[tag] = 1;
+        } else {
+          allTags[tag] ++;
         }
         /* END LOOP: for each tag */
       }
@@ -129,7 +130,7 @@
     const tagList = document.querySelector('.tags');
     console.log(' list of tags in right column', tagList);
     /* add html from allTAgs to tagList */
-    tagList.innerHTML = allTags.join(' ');
+    //tagList.innerHTML = allTags.join(' ');
     console.log('tag list', allTags);
 
 
