@@ -127,9 +127,10 @@
 
     /* [NEW] find list of tags in right column */
     const tagList = document.querySelector('.tags');
+    console.log(' list of tags in right column', tagList);
     /* add html from allTAgs to tagList */
-    tagList.innerHtml = allTags.join(' ');
-    console.log('tag list', tagList)
+    tagList.innerHTML = allTags.join(' ');
+    console.log('tag list', allTags);
 
 
   }
