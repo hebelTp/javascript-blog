@@ -197,7 +197,7 @@
 
   function generateAuthor() {
     /* [NEW] create a new variable allAuthors with an empty array */
-    
+    let allAuthors = [] ;
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
 
@@ -220,8 +220,10 @@
       html = html + authorHtml;
 
       /* [NEW] check if this link is NOT alredy in allAuthors */
-
+      if (allAuthors.indexOf(authorHtml) == -1) {
       /* [NEW add generated code to allAuthors array] */
+        allAuthors.push(authorHtml);
+      }
 
       /* insert HTML of all the links into the tags wrapper */
       authorList.innerHTML= html ;
@@ -230,12 +232,12 @@
 
       /* END LOOP: for every article: */
     }
-/* [NEW] find list of authors in right column */
+    /* [NEW] find list of authors in right column */
 
-//console.log(' list of tags in right column', tagAuthors);
-/* add html from allTags to authorList */
+    //console.log(' list of tags in right column', tagAuthors);
+    /* add html from allTags to authorList */
 
-//console.log('AUTHOR list', allAuthors);
+    //console.log('AUTHOR list', allAuthors);
 
   }
   generateAuthor();
