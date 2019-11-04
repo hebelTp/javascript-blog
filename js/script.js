@@ -75,6 +75,8 @@
   }
   generateTitleLinks();
 
+  function calculateTagsParams(tags){
+  }
   function generateTags() {
 
     /* [NEW] create a new variable allTags with an empty object */
@@ -132,6 +134,9 @@
     const tagList = document.querySelector('.tags');
     console.log(' list of tags in right column', tagList);
 
+    const tagsParams = calculateTagsParams(allTags);
+    console.log('tagsParams', tagsParams);
+
     /* [NEW] create variable for all links HTML code */
     let allTagsHTML = '';
     console.log('PUSTY LINK', allTagsHTML);
@@ -150,9 +155,6 @@
     console.log('TAAG LISTS', tagList)
     tagList.innerHTML = allTagsHTML;
     console.log('ALL TAAAGS HHHTTTMMMLLL ', allTagsHTML);
-
-
-
   }
 
 
