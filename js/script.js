@@ -91,6 +91,17 @@
   }
 
   function calculateTagsClass(count, params){
+    console.log(count);
+    console.log(params);
+    const normalizedCount = count - params.min;
+    console.log(normalizedCount);
+    const normalizedMax = params.max - params.min;
+    console.log(normalizedMax);
+    const percentage = normalizedCount/normalizedMax;
+    console.log(percentage)
+    const classNumber = Math.floor(percentage * (optCloudClassCount -1) + 1 );
+    console.log (classNumber);
+    return classNumber;
   }
 
   function generateTags() {
