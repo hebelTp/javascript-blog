@@ -75,13 +75,23 @@
   }
   generateTitleLinks();
 
-  function calculateTagsParams(tags){
+  function calculateTagsParams(tags) {
+    const params = {
+      max: 0,
+      min: 99999,
+    };
+    for (let tag in tags){
+      params.max = Math.max(tags[tag], params.max);
+      params.min = Math.min(tags[tag], params.min);
+      console.log( tag + ' is used ' + tags[tag] + ' times');
+    }
+    return params;
   }
+
   function generateTags() {
 
     /* [NEW] create a new variable allTags with an empty object */
     let allTags = {};
-    //console.log(allTags);
 
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
@@ -98,10 +108,8 @@
       /* get tags from data-tags attribute */
       const articleTags = article.getAttribute('data-tags');
 
-
       /* split tags into array */
       const articleTagsArray = articleTags.split(' ');
-
 
       /* START LOOP: for each tag */
       for (let tag of articleTagsArray) {
@@ -124,25 +132,20 @@
       }
       /* insert HTML of all the links into the tags wrapper */
       tagList.innerHTML=html;
-      console.log(html);
+
       /* END LOOP: for every article: */
-      console.log('OOOOOOOOOOOOOOOO',tagList);
-      console.log('AAAAAAAAAAAAAAAA',html);
     }
 
     /* [NEW] find list of tags in right column */
     const tagList = document.querySelector('.tags');
-    console.log(' list of tags in right column', tagList);
 
     const tagsParams = calculateTagsParams(allTags);
     console.log('tagsParams', tagsParams);
 
     /* [NEW] create variable for all links HTML code */
     let allTagsHTML = '';
-    console.log('PUSTY LINK', allTagsHTML);
 
     /* [NEW] START LOOP: for each tag in allTags */
-    console.log('PUSTY LINK ', allTagsHTML)
     for (let tag in allTags) {
 
       /* [NEW] generate code of a link and add it to allTagsHTML */
@@ -151,12 +154,9 @@
     }
 
     /* [NEW] add html from allTagsHTML to tagList */
-    console.log('link PO PĘTLI ', allTagsHTML)
-    console.log('TAAG LISTS', tagList)
     tagList.innerHTML = allTagsHTML;
-    console.log('ALL TAAAGS HHHTTTMMMLLL ', allTagsHTML);
-  }
 
+  }
 
   generateTags();
 
@@ -220,7 +220,7 @@
   function generateAuthor() {
     /* [NEW] create a new variable allAuthors with an empty array */
     let allAuthors = [] ;
-    console.log(allAuthors);
+    // console.log(allAuthors);
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
 
@@ -275,10 +275,10 @@
 
     /* make a new constant "href" and read the attribute "href" of the clicked element */
     const href = clickedElement.getAttribute('href');
-    console.log('HREF', href);
+    // console.log('HREF', href);
     /* make a new constant "author" and extract author from the "href" constant */
     const author = href.replace('#author-', '');
-    console.log('AUTHOR', author);
+    // console.log('AUTHOR', author);
     /* find all author links with class active */
     const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
 
