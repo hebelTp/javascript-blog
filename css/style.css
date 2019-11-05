@@ -111,22 +111,27 @@ body {
 /* tag in cloud */
 .tag-size-1 {
   font-size: 100%;
+  color: #fdcb6e;
 }
 
 .tag-size-2 {
   font-size: 125%;
+  color: #e17055;
 }
 
 .tag-size-3 {
   font-size: 150%;
+  color: #d63031;
 }
 
 .tag-size-4 {
   font-size: 175%;
+  color: #e84393;
 }
 
 .tag-size-5 {
   font-size: 200%;
+  color: #2d3436;
 }
 
 .tags li {

@@ -39,7 +39,7 @@
     optArticleTagsSelectorOper = '.post-tags .list a',
     optArticleAuthorsSelectorOper = '.post-author a ',
     optArticleAuthorSelector = '.post-author',
-    optTagsListSelector = '.tags .list',
+    optTagsListSelector = '.tags.list',
     optCloudClassCount = 5,
     optCloudClassPrefix = 'tag-size-' ;
 
