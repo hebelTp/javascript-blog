@@ -101,7 +101,8 @@
     console.log(percentage)
     const classNumber = Math.floor(percentage * (optCloudClassCount -1) + 1 );
     console.log (classNumber);
-    return classNumber;
+    const classAndValueNumber = optCloudClassPrefix + classNumber;
+    return classAndValueNumber;
   }
 
   function generateTags() {
