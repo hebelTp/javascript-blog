@@ -107,4 +107,29 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+/* tag in cloud */
+.tag-size-1 {
+  font-size: 100%;
+}
+
+.tag-size-2 {
+  font-size: 125%;
+}
+
+.tag-size-3 {
+  font-size: 150%;
+}
+
+.tag-size-4 {
+  font-size: 175%;
+}
+
+.tag-size-5 {
+  font-size: 200%;
+}
+
+.tags li {
+  display: inline-block;
+}
 /*# sourceMappingURL=style.css.map */
