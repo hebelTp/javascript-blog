@@ -99,6 +99,8 @@ body {
 .authors {
   li {
     margin-bottom: 12px;
+    display: inline-block;
+    font-size: 90%;
   }
 }
 
@@ -150,8 +152,7 @@ body {
 
 .tags {
   li {
-
-      display: inline-block;
+    display: inline-block;
   }
 
 }

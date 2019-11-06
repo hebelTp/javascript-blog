@@ -227,9 +227,9 @@
   addClickListenersToTags();
 
   function generateAuthor() {
-    /* [NEW][NEW] create a new variable allAuthors with an empty object */
+    /* [NEW][NEW] create a new variable allAuthors with an conempty object */
     let allAuthors = {} ;
-    console.log('allAuthors', allAuthors);
+
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
 
@@ -244,11 +244,10 @@
 
       /* get tags from data-authors attribute */
       const articleAuthors = article.getAttribute('data-authors');
-      console.log('articleAuthors', articleAuthors);
 
       /* generate HTML of the link */   // WITHOUT ARRAY AND SPLIT THAT IS WHY TER IS NOT A LOOP
       const authorHtml = '<a href="#author-' + articleAuthors + '"> ' + articleAuthors + '</a>';
-      console.log('authorHtml', authorHtml);
+
       /* add generated code to html variable */
       html = html + authorHtml;
 
@@ -260,7 +259,6 @@
         allAuthors[articleAuthors] = 1;
       } else {
         allAuthors[articleAuthors]++;
-
       }
 
       /* insert HTML of all the links into the tags wrapper */
@@ -271,26 +269,18 @@
 
     /* [NEW] find list of authors in right column */
     const authorList = document.querySelector('.authors');
-    console.log('authorList', authorList);
 
-    /* add html from allAuthors to authorList */
-    //authorList.innerHTML = allAuthors.join(' ');
-    console.log('allAuthors', allAuthors);
     /* [NEW] create variable for all links HTML code*/
     let allAuthorsHTML = '';
 
     /* [NEW] START LOOP for each authors on allAuthors */
     for (let author in allAuthors)
-    /* [NEW] generate code of a link and aad it to allAuthorsHTML without a loop like in allTagsHTML ??*/
-      //allAuthorsHTML += author + '(' + allAuthors[author] + ')';
-      allAuthorsHTML += '<li><a href="#author-' + author + '">' + author + ' (' + allAuthors[author] + ')' + '</a></li>';
-      /* [NEW] add html from allAuthorsHTML to authorList */
-    console.log('allAuthorsHTML', allAuthorsHTML);
+    /* [NEW] generate code of a link and aad it to allAuthorsHTML */
+      allAuthorsHTML += '<li><a href="#author-' + author + '">' +  author + ' (' + allAuthors[author] + ')' + '</a></li>';
 
+    /* [NEW] add html from allAuthorsHTML to authorList */
     authorList.innerHTML = allAuthorsHTML;  //to authorList inside HTML put corect HTML
-
   }
-
   generateAuthor();
 
   const authorClickHandler = function(event) {
@@ -348,8 +338,6 @@
     }
   }
   addClickListenersToAuthors();
-
-
 }
 
 
