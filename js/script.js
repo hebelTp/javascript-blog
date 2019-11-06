@@ -69,9 +69,9 @@
       const articleTitle = article.querySelector(opt.TitleSelector).innerHTML;
 
       /* create HTML of the link */
+      //const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
       const linkHTMLData = {id: articleId, title: articleTitle};
       const linkHTML = templates.articleLink(linkHTMLData);
-
       /* insert link into titleList */
       html = html + linkHTML;
     }
@@ -134,10 +134,13 @@
       for (let tag of articleTagsArray) {
 
         /* generate HTML of the link */
-        const tagHtml = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+        //const tagHtml = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+        //console.log(tagHtml)
+        const linkHTMLData = {id: tag, title: tag};
+        const linkHtml = templates.articleLink(linkHTMLData);
 
         /* add generated code to html variable */
-        html= html+tagHtml;
+        html= html+linkHtml;
 
         /* [NEW] check if this link is NOT alredy in allTags */
         if(!allTags.hasOwnProperty(tag)) {
