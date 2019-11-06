@@ -86,7 +86,7 @@
     for (let tag in tags){
       params.max = Math.max(tags[tag], params.max);
       params.min = Math.min(tags[tag], params.min);
-       }
+    }
     return params;
   }
 
@@ -282,13 +282,14 @@
     /* [NEW] START LOOP for each authors on allAuthors */
     for (let author in allAuthors)
     /* [NEW] generate code of a link and aad it to allAuthorsHTML without a loop like in allTagsHTML ??*/
-    allAuthorsHTML += author + '(' + allAuthors[author] + ')';
-    /* [NEW] add html from allAuthorsHTML to authorList */
+      //allAuthorsHTML += author + '(' + allAuthors[author] + ')';
+      allAuthorsHTML += '<li><a href="#author-' + author + '">' + author + ' (' + allAuthors[author] + ')' + '</a></li>';
+      /* [NEW] add html from allAuthorsHTML to authorList */
     console.log('allAuthorsHTML', allAuthorsHTML);
 
     authorList.innerHTML = allAuthorsHTML;  //to authorList inside HTML put corect HTML
 
- }
+  }
 
   generateAuthor();
 
