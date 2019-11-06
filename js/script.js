@@ -86,22 +86,16 @@
     for (let tag in tags){
       params.max = Math.max(tags[tag], params.max);
       params.min = Math.min(tags[tag], params.min);
-      console.log( tag + ' is used ' + tags[tag] + ' times');
-    }
+       }
     return params;
   }
 
   function calculateTagsClass(count, params){
-    console.log(count);
-    console.log(params);
+
     const normalizedCount = count - params.min;
-    console.log(normalizedCount);
     const normalizedMax = params.max - params.min;
-    console.log(normalizedMax);
     const percentage = normalizedCount/normalizedMax;
-    console.log(percentage)
     const classNumber = Math.floor(percentage * (optCloudClassCount -1) + 1 );
-    console.log (classNumber);
     const classAndValueNumber = optCloudClassPrefix + classNumber;
     return classAndValueNumber;
   }
@@ -156,9 +150,7 @@
 
     /* [NEW] find list of tags in right column */
     const tagList = document.querySelector('.tags');
-
     const tagsParams = calculateTagsParams(allTags);
-    console.log('tagsParams', tagsParams);
 
     /* [NEW] create variable for all links HTML code */
     let allTagsHTML = '';
@@ -173,7 +165,6 @@
 
     /* [NEW] add html from allTagsHTML to tagList */
     tagList.innerHTML = allTagsHTML;
-    console.log(allTagsHTML);
   }
 
   generateTags();
@@ -236,9 +227,9 @@
   addClickListenersToTags();
 
   function generateAuthor() {
-    /* [NEW] create a new variable allAuthors with an empty array */
-    let allAuthors = [] ;
-    // console.log(allAuthors);
+    /* [NEW][NEW] create a new variable allAuthors with an empty object */
+    let allAuthors = {} ;
+    console.log('allAuthors', allAuthors);
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
 
@@ -253,10 +244,11 @@
 
       /* get tags from data-authors attribute */
       const articleAuthors = article.getAttribute('data-authors');
+      console.log('articleAuthors', articleAuthors);
 
       /* generate HTML of the link */   // WITHOUT ARRAY AND SPLIT THAT IS WHY TER IS NOT A LOOP
       const authorHtml = '<a href="#author-' + articleAuthors + '"> ' + articleAuthors + '</a>';
-
+      console.log('authorHtml', authorHtml);
       /* add generated code to html variable */
       html = html + authorHtml;
 
@@ -276,6 +268,7 @@
 
     /* [NEW] find list of authors in right column */
     const authorList = document.querySelector('.authors');
+    console.log('authorList', authorList);
 
     /* add html from allAuthors to authorList */
     authorList.innerHTML = allAuthors.join(' ');
@@ -293,10 +286,10 @@
 
     /* make a new constant "href" and read the attribute "href" of the clicked element */
     const href = clickedElement.getAttribute('href');
-    // console.log('HREF', href);
+
     /* make a new constant "author" and extract author from the "href" constant */
     const author = href.replace('#author-', '');
-    // console.log('AUTHOR', author);
+
     /* find all author links with class active */
     const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
 
@@ -328,7 +321,7 @@
   function addClickListenersToAuthors() {
     /* find all links to authors */
     const authors = document.querySelectorAll(optArticleAuthorsSelectorOper + ' , ' + optAuthorsListSelector);
-    console.log(authors);
+
     /* START LOOP: for each link */
     for (let author of authors) {
 
