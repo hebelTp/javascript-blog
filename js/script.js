@@ -1,5 +1,26 @@
 {
+
   'use strict';
+  const opt = {
+  ArticleSelector: '.post',
+  TitleSelector: '.post-title',
+  TitleListSelector: '.titles'
+  
+
+};
+
+  const
+
+
+    optArticleTagsSelector = '.post-tags .list',
+    optArticleTagsSelectorOper = '.post-tags a',
+    optArticleAuthorsSelectorOper = '.post-author a',
+    optArticleAuthorSelector = '.post-author',
+    optTagsListSelector = '.list.tags a',
+    optAuthorsListSelector = '.list.authors a',
+    optCloudClassCount = 5,
+    optCloudClassPrefix = 'tag-size-' ;
+
   const titleClickHandler = function(event) {
     event.preventDefault();
     const clickedElement = this;
@@ -32,25 +53,13 @@
   };
 
   /* create function to generate title links */
-  const optArticleSelector = '.post',
-    optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles',
-    optArticleTagsSelector = '.post-tags .list',
-    optArticleTagsSelectorOper = '.post-tags a',
-    optArticleAuthorsSelectorOper = '.post-author a',
-    optArticleAuthorSelector = '.post-author',
-    optTagsListSelector = '.list.tags a',
-    optAuthorsListSelector = '.list.authors a',
-    optCloudClassCount = 5,
-    optCloudClassPrefix = 'tag-size-' ;
-
   function generateTitleLinks(customSelector = '') {
 
     /* remove contents of titleList */
-    const titleList = document.querySelector(optTitleListSelector);
+    const titleList = document.querySelector(opt.TitleListSelector);
 
     /*for each article */
-    const articles = document.querySelectorAll(optArticleSelector + customSelector);
+    const articles = document.querySelectorAll(opt.ArticleSelector + customSelector);
     let html = '';
 
     for (let article of articles) {
@@ -60,7 +69,7 @@
 
       /* find the title element */
       /* get the title from the title element */
-      const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+      const articleTitle = article.querySelector(opt.TitleSelector).innerHTML;
 
       /* create HTML of the link */
       const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
@@ -106,7 +115,7 @@
     let allTags = {};
 
     /* find all articles */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(opt.ArticleSelector);
 
     /* START LOOP: for every article: */
     for (let article of articles ){
@@ -231,7 +240,7 @@
     let allAuthors = {} ;
 
     /* find all articles */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(opt.ArticleSelector);
 
     /* START LOOP: for every article: */
     for (let article of articles) {
