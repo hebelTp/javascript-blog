@@ -254,10 +254,13 @@
 
       /* [NEW] check if this link is NOT alredy in allAuthors */
 
-      if (allAuthors.indexOf(authorHtml) == -1) {
+      if (!allAuthors.hasOwnProperty(articleAuthors)) {
 
         /* [NEW add generated code to allAuthors array] */
-        allAuthors.push(authorHtml);
+        allAuthors[articleAuthors] = 1;
+      } else {
+        allAuthors[articleAuthors]++;
+
       }
 
       /* insert HTML of all the links into the tags wrapper */
@@ -271,7 +274,8 @@
     console.log('authorList', authorList);
 
     /* add html from allAuthors to authorList */
-    authorList.innerHTML = allAuthors.join(' ');
+    //authorList.innerHTML = allAuthors.join(' ');
+    console.log('allAuthors', allAuthors);
   }
 
   generateAuthor();
