@@ -170,6 +170,8 @@
 
       /* [NEW] generate code of a link and add it to allTagsHTML */
       allTagsHTML += '<li><a class="' + calculateTagsClass(allTags[tag], tagsParams) +  '" href="#tag-' + tag + '">' + tag + ' ' + '</a></li>'; //
+      //const linkHTMLData = {id: tag, title: tag};
+      //const allTagsHTML = templates.articleLink(linkHTMLData);
       /* [NEW] END LOOP: for each tag in allTags: */
     }
 
@@ -207,6 +209,7 @@
     /* find all tag links with "href" attribute equal to the "href" constant */
 
     const tagLinks = document.querySelectorAll('a[href^="#tag-' + tag + '"]');
+
 
     /* START LOOP: for each found tag link */
     for (let tagLink of tagLinks) {
@@ -256,7 +259,9 @@
       const articleAuthors = article.getAttribute('data-authors');
 
       /* generate HTML of the link */   // WITHOUT ARRAY AND SPLIT THAT IS WHY TER IS NOT A LOOP
-      const authorHtml = '<a href="#author-' + articleAuthors + '"> ' + articleAuthors + '</a>';
+      //const authorHtml = '<a href="#author-' + articleAuthors + '"> ' + articleAuthors + '</a>';
+      const linkHTMLData = {id: articleAuthors, title: articleAuthors};
+      const authorHtml = templates.articleLink(linkHTMLData);
 
       /* add generated code to html variable */
       html = html + authorHtml;
