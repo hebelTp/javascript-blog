@@ -2,24 +2,18 @@
 
   'use strict';
   const opt = {
-  ArticleSelector: '.post',
-  TitleSelector: '.post-title',
-  TitleListSelector: '.titles'
-  
-
-};
-
-  const
-
-
-    optArticleTagsSelector = '.post-tags .list',
-    optArticleTagsSelectorOper = '.post-tags a',
-    optArticleAuthorsSelectorOper = '.post-author a',
-    optArticleAuthorSelector = '.post-author',
-    optTagsListSelector = '.list.tags a',
-    optAuthorsListSelector = '.list.authors a',
-    optCloudClassCount = 5,
-    optCloudClassPrefix = 'tag-size-' ;
+    ArticleSelector: '.post',
+    TitleSelector: '.post-title',
+    TitleListSelector: '.titles',
+    ArticleTagsSelectorOper: '.post-tags a',
+    ArticleTagsSelector: '.post-tags .list',
+    ArticleAuthorsSelectorOper: '.post-author a',
+    ArticleAuthorSelector: '.post-author',
+    TagsListSelector: '.list.tags a',
+    AuthorsListSelector: '.list.authors a',
+    CloudClassCount: 5,
+    CloudClassPrefix: 'tag-size-',
+  };
 
   const titleClickHandler = function(event) {
     event.preventDefault();
@@ -104,8 +98,8 @@
     const normalizedCount = count - params.min;
     const normalizedMax = params.max - params.min;
     const percentage = normalizedCount/normalizedMax;
-    const classNumber = Math.floor(percentage * (optCloudClassCount -1) + 1 );
-    const classAndValueNumber = optCloudClassPrefix + classNumber;
+    const classNumber = Math.floor(percentage * (opt.CloudClassCount -1) + 1 );
+    const classAndValueNumber = opt.CloudClassPrefix + classNumber;
     return classAndValueNumber;
   }
 
@@ -121,7 +115,7 @@
     for (let article of articles ){
 
       /* find tags wrapper */
-      const tagList = article.querySelector(optArticleTagsSelector);
+      const tagList = article.querySelector(opt.ArticleTagsSelector);
 
       /* make html variable with empty string */
       let html = '';
@@ -222,7 +216,7 @@
 
   function addClickListenersToTags() {
     /* find all links to tags */
-    const tags = document.querySelectorAll(optArticleTagsSelectorOper + ' , ' + optTagsListSelector);
+    const tags = document.querySelectorAll(opt.ArticleTagsSelectorOper + ' , ' + opt.TagsListSelector);
 
     /* START LOOP: for each link */
     for (let tag of tags) {
@@ -246,7 +240,7 @@
     for (let article of articles) {
 
       /* find Author wrapper */
-      const authorList = article.querySelector(optArticleAuthorSelector);
+      const authorList = article.querySelector(opt.ArticleAuthorSelector);
 
       /* make html variable with empty string */
       let = html = '';
@@ -336,7 +330,7 @@
 
   function addClickListenersToAuthors() {
     /* find all links to authors */
-    const authors = document.querySelectorAll(optArticleAuthorsSelectorOper + ' , ' + optAuthorsListSelector);
+    const authors = document.querySelectorAll(opt.ArticleAuthorsSelectorOper + ' , ' + opt.AuthorsListSelector);
 
     /* START LOOP: for each link */
     for (let author of authors) {
