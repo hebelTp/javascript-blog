@@ -132,7 +132,7 @@ body {
   color: #e84393;
 }
 
-.tag-size-5, .tag.tag-size-5 li {
+.tag-size-5 {
   font-size: 200%;
   color: #2d3436;
 }

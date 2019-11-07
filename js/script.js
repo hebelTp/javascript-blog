@@ -176,7 +176,7 @@
         count: allTags[tag],
         className: calculateTagsClass(allTags[tag], tagsParams)
       });
-      console.log(allTagsData)
+      console.log()
       /* [NEW] END LOOP: for each tag in allTags: */
     }
     console.log(tagList)
