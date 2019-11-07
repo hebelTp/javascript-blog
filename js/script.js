@@ -197,7 +197,9 @@
     const href = clickedElement.getAttribute('href');
 
     /* make a new constant "tag" and extract tag from the "href" constant */
-    const tag = href.replace('#tag-', '');
+    const tag = href
+      .replace('#tag-', '')
+      .replace('#', '');
 
     /* find all tag links with class active */
     const activeTags = document.querySelectorAll('a.active[href^="#tag-"]');
@@ -319,8 +321,8 @@
 
     /* make a new constant "author" and extract author from the "href" constant */
     const author = href
-    .replace('#author-', '')
-    .replace('#', '');
+      .replace('#author-', '')
+      .replace('#', '');
 
     /* find all author links with class active */
     const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
