@@ -137,7 +137,6 @@
 
         /* generate HTML of the link */
         //const tagHtml = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
-        //console.log(tagHtml)
         const linkHTMLData = {id: tag, title: tag};
         const linkHtml = templates.articleLink(linkHTMLData);
 
@@ -156,30 +155,31 @@
       }
       /* insert HTML of all the links into the tags wrapper */
       tagList.innerHTML=html;
-
+      console.log(tagList)
       /* END LOOP: for every article: */
     }
 
     /* [NEW] find list of tags in right column */
-    const tagList = document.querySelector('.tags');
+    const tagList = document.querySelector('.tags ');
     const tagsParams = calculateTagsParams(allTags);
 
     /* [NEW] create variable for all links HTML code */
     const allTagsData = {tags: []};
-
+    console.log(allTagsData)
     /* [NEW] START LOOP: for each tag in allTags */
     for (let tag in allTags) {
 
       /* [NEW] generate code of a link and add it to allTagsHTML */
       //allTagsHTML += '<li><a class="' + calculateTagsClass(allTags[tag], tagsParams) +  '" href="#tag-' + tag + '">' + tag + ' ' + '</a></li>'; //
-      allTagsData.tags.push({
+        allTagsData.tags.push({
         tag: tag,
         count: allTags[tag],
         className: calculateTagsClass(allTags[tag], tagsParams)
       });
+      console.log(allTagsData)
       /* [NEW] END LOOP: for each tag in allTags: */
     }
-
+    console.log(tagList)
     /* [NEW] add html from allTagsHTML to tagList */
     tagList.innerHTML = templates.tagCloudLink(allTagsData);
     console.log(allTagsData);
