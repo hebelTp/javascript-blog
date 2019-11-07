@@ -318,7 +318,9 @@
     const href = clickedElement.getAttribute('href');
 
     /* make a new constant "author" and extract author from the "href" constant */
-    const author = href.replace('#author-', '');
+    const author = href
+    .replace('#author-', '')
+    .replace('#', '');
 
     /* find all author links with class active */
     const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
